@@ -6,6 +6,8 @@ window.onload = function(){
     endOfGame();
     let start = document.getElementById("start");
     startOfGame();
+    let message = document.getElementById("status");
+    let original = message.innerHTML;
 
     function turnWalls(){
         boundaries.forEach(b => {
@@ -20,6 +22,7 @@ window.onload = function(){
 
     function reset(){
         wall = 0;
+        message.innerHTML = original;
         boundaries.forEach(b => {
             b.classList.remove("youlose");
         });
@@ -35,7 +38,10 @@ window.onload = function(){
 
     function status(){
         if(wall == 0){
-            window.alert("You win! Play again?");
+            message.innerHTML = "You win! Play again?";
+        }
+        else{
+            message.innerHTML = "You lose! Try again?";
         }
     }
 }
