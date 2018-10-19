@@ -4,6 +4,8 @@ window.onload = function(){
     turnWalls();
     let end = document.getElementById("end");
     endOfGame();
+    let start = document.getElementById("start");
+    startOfGame();
 
     function turnWalls(){
         boundaries.forEach(b => {
@@ -16,8 +18,19 @@ window.onload = function(){
         wall++;
     }
 
+    function reset(){
+        wall = 0;
+        boundaries.forEach(b => {
+            b.classList.remove("youlose");
+        });
+    }
+
     function endOfGame(){
         end.addEventListener("mouseover", status);
+    }
+
+    function startOfGame(){
+        start.addEventListener("click", reset);
     }
 
     function status(){
