@@ -21,8 +21,10 @@ window.onload = function(){
     }
 
     function red(){
-        this.classList.add("youlose");
-        wall++;
+        boundaries.forEach(b =>{
+            b.classList.add("youlose");
+            wall++;
+        })
     }
 
     function makeAllRed() {
